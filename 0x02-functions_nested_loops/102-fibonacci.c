@@ -8,21 +8,16 @@
  */
 int main(void)
 {
-	long int n1, n2, fn, afn;
+	long long int firstNum, secondNum, sum;
 
-	n1 = 1;
-	n2 = 2;
-	fn = afn = 0;
-	while (fn <= 4000000)
+	firstNum = 0;
+	secondNum = 1;
+	for (int i = 2; i <= 50; ++i)
 	{
-		fn = n1 + n2;
-		n1 = n2;
-		n2 = fn;
-		if ((n1 % 2) == 0)
-		{
-			afn += n1;
-		}
+		sum = firstNum + secondNum;
+		firstNum = secondNum;
+		secondNum = sum;
+		printf("%lld\n", sum);
 	}
-	printf("%ld\n", afn);
 	return (0);
 }
