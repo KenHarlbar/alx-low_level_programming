@@ -2,7 +2,6 @@
 
 /**
  * print_alphabet - Prints the alphabet in lowercase, and then a newline
- * @i: for iteration
  *
  * Return: Always 0 (Success)
  */
