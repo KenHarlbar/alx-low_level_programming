@@ -8,16 +8,17 @@
  */
 int main(void)
 {
-	long long int firstNum, secondNum, sum;
+	long int firstNum, secondNum, sum;
+	int i;
 
 	firstNum = 0;
 	secondNum = 1;
-	for (int i = 2; i <= 50; ++i)
+	for (i = 2; i <= 50; ++i)
 	{
 		sum = firstNum + secondNum;
 		firstNum = secondNum;
 		secondNum = sum;
-		printf("%lld\n", sum);
+		printf("%ld\n", sum);
 	}
 	return (0);
 }
