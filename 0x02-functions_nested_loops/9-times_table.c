@@ -12,19 +12,22 @@ void times_table(void)
 	i = 0;
 	while (i <= 9)
 	{
+		_putchar(48);
 		j = 1;
 		while (j <= 9)
 		{
 			product = i * j;
-			_putchar(product);
-			if (j == 9)
-			{
-				_putchar('\n');
-			}
 			_putchar(44);
 			_putchar(32);
+			if (product <= 9)
+			{
+				_putchar(product + 48);
+			}
+			_putchar((product / 10) + 48);
+			_putchar((product % 10) + 48);
 			++j;
 		}
+		_putchar('\n');
 		++i;
 	}
 }
