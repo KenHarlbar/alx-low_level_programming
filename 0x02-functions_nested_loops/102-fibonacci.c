@@ -18,7 +18,15 @@ int main(void)
 		sum = firstNum + secondNum;
 		firstNum = secondNum;
 		secondNum = sum;
-		printf("%ld\n", sum);
+		printf("%ld", sum);
+		if (i < 50)
+		{
+			printf(", ");
+		}
+		else
+		{
+			printf("\n");
+		}
 	}
 	return (0);
 }
