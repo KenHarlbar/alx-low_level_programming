@@ -13,7 +13,7 @@ int main(void)
 
 	firstNum = 0;
 	secondNum = 1;
-	for (i = 2; i < 50; ++i)
+	for (i = 0; i < 50; ++i)
 	{
 		sum = firstNum + secondNum;
 		firstNum = secondNum;
