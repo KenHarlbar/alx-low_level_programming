@@ -13,13 +13,13 @@ int main(void)
 
 	firstNum = 0;
 	secondNum = 1;
-	for (i = 2; i <= 50; ++i)
+	for (i = 2; i < 50; ++i)
 	{
 		sum = firstNum + secondNum;
 		firstNum = secondNum;
 		secondNum = sum;
 		printf("%ld", sum);
-		if (i < 50)
+		if (i < 49)
 		{
 			printf(", ");
 		}
