@@ -9,13 +9,13 @@
  */
 void print_rev(char *s)
 {
-	int count = 0;
+	int count = 0, countDown;
 
 	while (*(s + count) != '\0')
 	{
 		count++;
 	}
-	int countDown = count;
+	countDown = count;
 
 	while (*(s + countDown) >= 0)
 	{
