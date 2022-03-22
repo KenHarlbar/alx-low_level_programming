@@ -3,7 +3,7 @@
 /**
  * _puts - print a string
  *
- * str: Input array
+ * @str: Input array
  *
  * Return: no return value
  */
