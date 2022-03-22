@@ -22,4 +22,5 @@ void rev_string(char *s)
 		_putchar(*(s + countDown));
 		countDown--;
 	}
+	_putchar('\n')
 }
