@@ -10,18 +10,21 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	int count = 0;
+	int count = 0, count2 = 0;
 
 	while (*(dest + count) != '\0')
 	{
-		_putchar(*(dest + count));
 		count++;
 	}
-	count = 0;
-	while(*(src + count) != '\0')
+	while(count2 >= 0)
 	{
-		_putchar(*(src + count));
+		*(dest + count) = *(src + count2);
+		if (*(src + count2) != '\0')
+		{
+			break;
+		}
 		count++;
+		count2++;
 	}
-	_putchar('\0');
+	return (dest);
 }
