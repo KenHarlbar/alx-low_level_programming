@@ -1,13 +1,10 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
- * _strncat- concatenate two strings without the null byte character
- *
- * @dest: first input string
- * @src: second input string
- * @n: amount of bytes used from src
- *
- * Return: no return value
+ * _strncat - concatenates two strings,
+ * @dest: destination.
+ * @src: source.
+ * @n: amount of bytes used from src.
+ * Return: the pointer to dest.
  */
 char *_strncat(char *dest, char *src, int n)
 {
@@ -17,13 +14,12 @@ char *_strncat(char *dest, char *src, int n)
 	{
 		count++;
 	}
+
 	while (count2 < n)
 	{
 		*(dest + count) = *(src + count2);
-		if (*(src + count2) != '\0')
-		{
+		if (*(src + count2) == '\0')
 			break;
-		}
 		count++;
 		count2++;
 	}
