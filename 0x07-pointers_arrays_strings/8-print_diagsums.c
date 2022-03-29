@@ -12,7 +12,7 @@
  */
 void print_diagsums(int *a, int size)
 {
-	unsigned int i, j, sum1 = 0, sum2 = 0, s;
+	unsigned int i, j, sum1 = 0, sum2 = 0, s = size;
 
 	for (i = 0; i < size; i++)
 	{
@@ -22,7 +22,6 @@ void print_diagsums(int *a, int size)
 			{
 				sum1 += *(*(a + i) + j);
 			}
-			s = size;
 			if (s % j == 1)
 			{
 				sum2 += *(*(a + i) + j);
