@@ -26,8 +26,16 @@ char *str_concat(char *s1, char *s2)
 	if (strout == NULL)
 		return (NULL);
 	for (j = 0; j <= count1; j++)
+		if (s1[j] == '\0')
+			continue;
+		if (s1[j] == '\n')
+			_putchar('\n');
 		strout[j] = s1[j];
 	for (j = count1++; j <= count2; j++)
+		if (s2[j] == '\0')
+			continue;
+		if (s2[j] == '\n')
+			_putchar('\n');
 		strout[j] = s2[j];
 	return (strout);
 }
