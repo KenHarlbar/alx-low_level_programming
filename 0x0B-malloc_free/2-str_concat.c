@@ -11,10 +11,12 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *strout;
-	unsigned int count1, count2, j, count;
+	unsigned int count1, count2, i, j, count;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	count1 = 0;
 	while (s1[count1] != '\0')
 		count1++;
@@ -24,18 +26,14 @@ char *str_concat(char *s1, char *s2)
 	count = count1 + count2;
 	strout = (char *)malloc(sizeof(char) * (count + 1));
 	if (strout == NULL)
+		free(strout);
 		return (NULL);
-	for (j = 0; j <= count1; j++)
-		if (s1[j] == '\0')
-			continue;
-		if (s1[j] == '\n')
-			_putchar('\n');
+	if (strout == NULL)
+		return (NULL);
+	for (j = 0; j < count1; j++)
 		strout[j] = s1[j];
-	for (j = count1++; j <= count2; j++)
-		if (s2[j] == '\0')
-			continue;
-		if (s2[j] == '\n')
-			_putchar('\n');
-		strout[j] = s2[j];
+	i = count2;
+	for (count2 = 0; count2 <= i; j++, count2++)
+		strout[j] = s2[count2];
 	return (strout);
 }
