@@ -11,12 +11,12 @@
  * Description: This is a general data type for
  * identifying dogs
  */
-struct dog
+typedef struct dog
 {
 	float age;
 	char *name;
 	char *owner;
-};
+}dog_t;
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 
