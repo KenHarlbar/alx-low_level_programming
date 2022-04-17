@@ -7,20 +7,20 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	unsigned int i = 0, j = 0, c = 0;
+	unsigned int i = 0, j, c = 0;
 	char *s, data_type[] = "cifs";
 
 	va_start(ap, format);
 	while (format && format[i])
 	{
+		j = 0;
 		while (data_type[j])
 		{
 			if (format[i] == data_type[j] && c)
 			{
 				printf(", ");
 				break;
-			}
-			j++;
+			} j++;
 		}
 		switch (format[i])
 		{
