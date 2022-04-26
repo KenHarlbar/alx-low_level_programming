@@ -2,51 +2,46 @@
 
 /**
  * delete_nodeint_at_index - deletes the node at index
- * index of a listint_t linked list
+ * of a linked list.
+ * @head: head of a list.
+ * @index: index of the list where the node is
+ * deleted.
  *
- * @head: top node
- * @index: index
- *
- * Return: -1 if it fails and 1 if it passes
+ * Return: 1 if it succeeded, -1 if it failed.
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *temp1, *temp2;
 	unsigned int i;
+	listint_t *prev;
+	listint_t *next;
 
-	temp1 = *head;
-	if (index == 0)
+	prev = *head;
+
+	if (index != 0)
 	{
-		if (!(*head))
-			return (-1);
-		*head = (*head)->next, free(temp1);
-		if (temp1)
-			return (-1);
-		return (1);
+		for (i = 0; i < index - 1 && prev != NULL; i++)
+		{
+			prev = prev->next;
+		}
 	}
-	else if (index == 1)
+
+	if (prev == NULL || (prev->next == NULL && index != 0))
 	{
-		if (!(temp1->next))
-			return (-1);
-		temp2 = temp1->next;
-		if (!(temp2->next))
-			return (-1);
-		temp1->next = temp2->next, free(temp2);
+		return (-1);
+	}
+
+	next = prev->next;
+
+	if (index != 0)
+	{
+		prev->next = next->next;
+		free(next);
 	}
 	else
 	{
-		for (i = 0; i < (index - 1); i++)
-		{
-			if (!temp1 && !(temp1->next))
-				return (-1);
-			temp1 = temp1->next;
-		}
-		temp2 = temp1->next;
-		if (!(temp2->next))
-			return (-1);
-		temp1->next = temp2->next, free(temp2);
+		free(prev);
+		*head = next;
 	}
-	if (temp2)
-		return (-1);
+
 	return (1);
 }
