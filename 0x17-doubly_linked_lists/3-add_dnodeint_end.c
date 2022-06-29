@@ -27,5 +27,5 @@ temp2 = temp2->next;
 temp1->prev = temp2;
 }
 temp2->next = temp1;
-return *head;
+return (*head);
 }
