@@ -20,12 +20,12 @@ temp1->prev = temp1->next = NULL;
 if (*head == NULL)
 *head = temp1;
 else
-temp2 = *head;
 {
+temp2 = *head;
 while (temp2->next != NULL)
 temp2 = temp2->next;
 temp1->prev = temp2;
-}
 temp2->next = temp1;
+}
 return (*head);
 }
