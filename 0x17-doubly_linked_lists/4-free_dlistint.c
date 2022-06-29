@@ -17,11 +17,10 @@ while (head->prev != NULL)
 head = head->prev;
 }
 
-while (head->next != NULL)
+while (head != NULL)
 {
 nxt = head->next;
 free(head);
 head = nxt;
 }
-free(head);
 }
