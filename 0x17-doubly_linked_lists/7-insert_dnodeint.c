@@ -20,11 +20,9 @@ unsigned int i;
 
 if (!temp1)
 return (NULL);
-printf("\nNode created.\n");
 
 temp1->n = n;
 temp1->next = temp1->prev = NULL;
-printf("\nAll data are in place.\n");
 
 if (!(*h))
 {
@@ -34,21 +32,22 @@ return (*h);
 
 if (idx == 0)
 {
-add_dnodeint(h, 2);
+add_dnodeint(h, n);
 return (*h);
 }
 
 if (idx == 1)
 {
-temp1->next = temp2;
-temp2->prev = temp1;
+temp1->next = temp2->next;
+temp1->prev = temp2;
+(temp2->next)->prev = temp1;
+temp2->next = temp1;
 return (*h);
 }
 
 for (i = 0; i <= (idx - 2); i++)
 {
 temp2 = temp2->next;
-printf("\nMoving -> [%d].\n", i);
 }
 
 if (!(temp2->next))
