@@ -15,8 +15,8 @@ unsigned int i;
 for (i = 0; i < index; i++)
 {
 if (!head)
-return NULL;
+return (NULL);
 head = head->next;
 }
-return head;
+return (head);
 }
