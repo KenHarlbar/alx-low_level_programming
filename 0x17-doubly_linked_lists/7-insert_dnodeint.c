@@ -14,45 +14,55 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-dlistint_t *temp = malloc(sizeof(dlistint_t));
-dlistint_t *head = *h;
-unsigned int i = 0, count = 0;
+dlistint_t *temp1 = malloc(sizeof(dlistint_t));
+dlistint_t *temp2 = *h;
+unsigned int i;
 
-if (!temp)
+if (!temp1)
 return (NULL);
-if (idx <= 0)
-return (NULL);
-temp->n = n;
-temp->next = temp->prev = NULL;
+printf("\nNode created.\n");
+
+temp1->n = n;
+temp1->next = temp1->prev = NULL;
+printf("\nAll data are in place.\n");
+
 if (!(*h))
 {
-*h = temp;
+*h = temp1;
 return (*h);
 }
-while (head)
+
+if (idx == 0)
 {
-head = head->next;
-count++;
+add_dnodeint(h, 2);
+return (*h);
 }
-head = *h;
-if ((idx - 1) > (count + 1))
-return (NULL);
-while (i <= (idx - 1) && head->next)
+
+if (idx == 1)
 {
-i++;
-head = head->next;
+temp1->next = temp2;
+temp2->prev = temp1;
+return (*h);
 }
-if ((idx - 1) == (count + 1))
+
+for (i = 0; i <= (idx - 2); i++)
 {
-temp->prev = head;
-head->next = temp;
+temp2 = temp2->next;
+printf("\nMoving -> [%d].\n", i);
+}
+
+if (!(temp2->next))
+{
+temp1->prev = temp2;
+temp2->next = temp1;
 }
 else
 {
-temp->prev = head->prev;
-temp->next = head;
-(head->prev)->next = temp;
-head->prev = temp;
+temp1->next = temp2->next;
+temp1->prev = temp2;
+(temp2->next)->prev = temp1;
+temp2->next = temp1;
 }
+
 return (*h);
 }
