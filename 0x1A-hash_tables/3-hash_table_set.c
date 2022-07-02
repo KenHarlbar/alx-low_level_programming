@@ -42,7 +42,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		current = prev = top = ht->array[index];
 		while (current)
 		{
-			if (!(strcmp(current->key, new_node->key)) && (i = 0))
+			if (!(strcmp(current->key, new_node->key)) && (i == 0))
 			{
 				new_node->next = current->next;
 				free_node(current);
