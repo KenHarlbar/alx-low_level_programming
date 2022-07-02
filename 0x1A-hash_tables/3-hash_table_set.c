@@ -58,7 +58,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			current = current->next;
 			i++;
 		}
-		if (!(new_node->next))
+		if (!(new_node->next) && i > 0)
 			new_node->next = top;
 		ht->array[index] = new_node;
 	}
