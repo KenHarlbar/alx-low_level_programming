@@ -25,7 +25,7 @@ void free_node(hash_node_t *node)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node = malloc(sizeof(hash_node_t)), *current, *prev, *top;
+	hash_node_t *new_node = malloc(sizeof(hash_node_t)), *current, *front, *tail;
 	unsigned long int i = 0, index = key_index((unsigned char *)key, ht->size);
 
 	if (!(strcmp(key, "")) || !key || !ht || !(new_node))
@@ -35,32 +35,29 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->value = strdup(value);
 	new_node->next = NULL;
 
-	if (!(ht->array[index]))
-		ht->array[index] = new_node;
-	else
+	if (ht->array[index])
 	{
-		current = prev = top = ht->array[index];
-		while (current)
+		current = front = ht->array[index];
+		while (front)
 		{
-			if (!(strcmp(current->key, new_node->key)) && (i == 0))
+			if (!(strcmp(front->key, new_node->key)) && (i == 0))
 			{
-				new_node->next = current->next;
-				free_node(current);
+				new_node->next = front->next;
 				break;
 			}
-			else if (!(strcmp(current->key, new_node->key)))
+			if (!(strcmp(front->key, new_node->key)))
 			{
-				prev->next = current->next;
-				free_node(current);
+				tail->next = front->next;
 				break;
 			}
-			prev = current;
-			current = current->next;
+			tail = front;
+			front = front->next;
 			i++;
 		}
-		if (!(new_node->next) && i > 0)
-			new_node->next = top;
-		ht->array[index] = new_node;
+		free_node(front);
+		if (!(new_node->next) && (i > 0))
+			new_node->next = current;
 	}
+	ht->array[index] = new_node;
 	return (1);
 }
