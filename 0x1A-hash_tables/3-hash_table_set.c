@@ -43,18 +43,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (!(strcmp(front->key, new_node->key)) && (i == 0))
 			{
 				new_node->next = front->next;
+				free_node(front);
 				break;
 			}
 			if (!(strcmp(front->key, new_node->key)))
 			{
 				tail->next = front->next;
+				free_node(front);
 				break;
 			}
 			tail = front;
 			front = front->next;
 			i++;
 		}
-		free_node(front);
 		if (!(new_node->next) && (i > 0))
 			new_node->next = current;
 	}
