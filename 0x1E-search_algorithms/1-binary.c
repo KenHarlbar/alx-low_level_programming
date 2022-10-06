@@ -41,6 +41,6 @@ else if (value < array[mid])
 high = mid - 1;
 }
 if (value == array[low])
-  return (low);
+return (low);
 return (-1);
 }
